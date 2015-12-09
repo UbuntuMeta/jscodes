@@ -30,14 +30,19 @@
 		color: white;
 		background: blue;
 	}
-	#product li {
-		background: #lightblue; 
-	}
-	#nav li.hidden ul li{ 
+	/**
+	* 相当于落空类的使用，让nav id下的li下的ul下的li样式如下所设置
+	**/
+	#nav li ul li{ 
 		float: left; width: 180px; 
-		display: none;
 	} 
-	#nav  li.show ul li {
+	/*
+	 	只要能唯一确定选择器，则不用写太绝对的定位，简化css
+	*/
+	.hiddensub ul li {
+		display: none;
+	}
+	.show ul li {
 		display: block;
 	}
 
@@ -48,7 +53,8 @@
 
 <ul id="nav">
 	<li><a>首页</a></li>
-	<li  class="hidden" id="product" onmouseover="showSubNav('product');" onmouseout="hiddenSubNav('product');"><a>我们的产品</a>
+	<!-- 这里使用this关键字，把该li对象本身传递给函数 -->
+	<li  class="hiddensub" id="product" onmouseover="showSubNav(this);" onmouseout="hiddenSubNav(this);"><a>我们的产品</a>
 	<ul> 
 <li><a href="#" _fcksavedurl="#">游戏点卡</a></li> 
 <li><a href="#" _fcksavedurl="#">Mac系列</a></li> 
@@ -58,7 +64,7 @@
 <li><a href="#" _fcksavedurl="#">Surface pro</a></li> 
 </ul> 
 	</li>
-	<li class="hidden" id="service" onmouseover="showSubNav('service');" onmouseout="hiddenSubNav('service');"><a>我们的服务</a>
+	<li class="hiddensub" id="service" onmouseover="showSubNav(this);" onmouseout="hiddenSubNav(this);"><a>我们的服务</a>
 	<ul> 
 <li><a href="#" _fcksavedurl="#">游戏技术代练服务</a></li> 
 <li><a href="#" _fcksavedurl="#">mac延期报修服务</a></li> 
@@ -70,15 +76,13 @@
 </ul>
 <script type="text/javascript">
     // 显示下拉菜单，本质就是将li的落空类改了
-	function showSubNav (id) {
-				var liobj = document.getElementById(id);
-				liobj.className = 'show'; // 使用#nav  li.show ul li 样式
+	function showSubNav (obj) { // 直接接受dom对象，无需再用getElement*操作
+		obj.className = 'show'; // 使用#nav  li.show ul li 样式
 	}
 
 	// 隐藏下拉菜单，本质就是将li的落空类改回n
-	function hiddenSubNav(id) {
-		var liobj = document.getElementById(id);
-		liobj.className = 'hidden'; // 使用#nav  li.hidden ul li 样式
+	function hiddenSubNav(obj) { // 直接接受dom对象，无需再用getElement*操作
+		obj.className = 'hiddensub'; // 使用#nav  li.hidden ul li 样式
 	}
 </script>
 </body>
