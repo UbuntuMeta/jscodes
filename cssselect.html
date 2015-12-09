@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>css test</title>
+	<style type="text/css">
+	ul ,li {
+		margin: 0;
+		padding:0;
+	}
+	#nav {
+		width: 800px;
+		height: 50px;
+		
+	}
+	#nav ul {
+		list-style-type: none;
+	}
+	#nav li {
+		list-style: none;
+		float: left;
+		width: 100px;
+		text-align: center;
+		line-height: 50px;
+		background: lightblue;
+	}
+	#nav a {
+		display: block;
+	}
+	#nav a:hover {
+		color: white;
+		background: blue;
+	}
+	/**
+	* 相当于落空类的使用，让nav id下的li下的ul下的li样式如下所设置
+	**/
+	
+	#nav li ul li {
+		float: left; width: 180px; 
+		display: none;
+
+	}
+	/* 利用hover实现显示二级下拉菜单*/
+	#nav li:hover ul li{ 
+		display: block;
+	} 
+	
+	</style>
+</head>
+<body>
+
+<ul id="nav">
+	<li><a>首页</a></li>
+	<li  id="product"><a>我们的产品</a>
+	<ul> 
+<li><a href="#" _fcksavedurl="#">游戏点卡</a></li> 
+<li><a href="#" _fcksavedurl="#">Mac系列</a></li> 
+<li><a href="#" _fcksavedurl="#">iphone系列</a></li> 
+<li><a href="#" _fcksavedurl="#">ipad系列</a></li> 
+<li><a href="#" _fcksavedurl="#">Apple Watch</a></li> 
+<li><a href="#" _fcksavedurl="#">Surface pro</a></li> 
+</ul> 
+	</li>
+	<li id="service"><a>我们的服务</a>
+	<ul> 
+<li><a href="#" _fcksavedurl="#">游戏技术代练服务</a></li> 
+<li><a href="#" _fcksavedurl="#">mac延期报修服务</a></li> 
+<li><a href="#" _fcksavedurl="#">iphone售后技术支持</a></li> 
+<li><a href="#" _fcksavedurl="#">ipad在线咨询</a></li> 
+</ul> 
+	</li>
+	<li><a>联系方式</a></li>
+</ul>
+</body>
+</html>
