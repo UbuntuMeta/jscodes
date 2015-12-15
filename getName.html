@@ -1,0 +1,25 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>获取性别</title>
+</head>
+<body>
+	性别:
+	<input type="text" name="sex" value='' />
+	<input type="text" name="sex" value='' />
+		<input type="text" name="sex" value='' />
+			<input type="text" name="sex" value='' />
+
+	<input type="button" value="获取性别" onclick="getSex();"/>
+	<script type="text/javascript">
+	function getSex () {
+		// body...
+		var sex = document.getElementsByName('sex');
+
+		for (var i = 0;i<sex.length; i++) {
+			sex[i].value += '啊哈哈 js太好玩'; 
+		}
+	}
+	</script>
+</body>
+</html>

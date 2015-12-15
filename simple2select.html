@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>This is a test!</title>
+</head>
+<body>
+	<form name="frm">
+		<select id="dress_select" onChange="redirec(document.frm.s1.options.selectedIndex)">
+			<option selected>请选择</option>
+			<option value="1">淑女装</option>
+			<option value="2">萝莉风</option>
+			<option value="3">御姐风</option>
+		</select>
+		<select name="s2">
+			<option value="请选择" selected>请选择</option>
+		</select>
+	</from>
+	<script type="text/javascript">
+		var select = document.getElementById('dress_select');
+		var count = select.options.length;
+		var select2 = new Array();
+		for (i=0; i<count; i++) select2.push([]);
+		//定义基本选项
+		select2[0][0] = new Option("请选择", " ");
+
+		select2[1][0] = new Option("阿依莲", " ");
+		select2[1][1] = new Option("淑女屋", " ");
+		select2[1][2] = new Option("秋水伊人", " ");
+
+		select2[2][0] = new Option("蓬蓬裙", " ");
+		select2[2][1] = new Option("公主裙", " ");
+
+		select2[3][0] = new Option("jumei", " ");
+		select2[3][1] = new Option("vip", " ");
+		select2[3][2] = new Option("fantasitc", " ");
+		console.log(select2);
+		function redirec(x){
+			var temp = document.frm.s2;
+			for (i=0;i<select2[x].length;i++){ 
+				temp.options[i]=new Option(select2[x][i].text,select2[x][i].value);
+			}
+			temp.options[0].selected=true;
+        }
+	</script>
+</body>
+</html>

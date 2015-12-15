@@ -1,0 +1,91 @@
+<html>
+<head>
+	<title>simple test</title>
+	<style type="text/css">
+	ul ,li {
+		margin: 0;
+		padding:0;
+	}
+	#nav {
+		width: 800px;
+		height: 50px;
+		
+	}
+	#nav ul {
+		list-style-type: none;
+	}
+	#nav li {
+		list-style: none;
+		float: left;
+		width: 100px;
+		text-align: center;
+		line-height: 50px;
+		background: lightblue;
+	}
+	#nav a {
+		display: block;
+	}
+	#nav a:hover {
+		color: white;
+		background: blue;
+	}
+	/**
+	* 相当于落空类的使用，让nav id下的li下的ul下的li样式如下所设置
+	**/
+	#nav li ul li{ 
+		float: left; width: 180px; 
+	} 
+	/*
+	 	只要能唯一确定选择器，则不用写太绝对的定位，简化css
+	*/
+	.hiddensub ul li {
+		display: none;
+	}
+	.show ul li {
+		display: block;
+	}
+	</style>
+</head>
+<body>
+
+<ul id="nav">
+	<li><a>首页</a></li>
+	<!-- 这里使用this关键字，把该li对象本身传递给函数 -->
+	<li  class="hiddensub" id="product" onmouseover="showSubNav(this);" onmouseout="hiddenSubNav(this);"><a>我们的产品</a>
+	<ul> 
+<li><a href="#" _fcksavedurl="#">游戏点卡</a></li> 
+<li><a href="#" _fcksavedurl="#">Mac系列</a></li> 
+<li><a href="#" _fcksavedurl="#">iphone系列</a></li> 
+<li><a href="#" _fcksavedurl="#">ipad系列</a></li> 
+<li><a href="#" _fcksavedurl="#">Apple Watch</a></li> 
+<li><a href="#" _fcksavedurl="#">Surface pro</a></li> 
+</ul> 
+	</li>
+	<li class="hiddensub" id="service" onmouseover="showSubNav(this);" onmouseout="hiddenSubNav(this);"><a>我们的服务</a>
+	<ul> 
+<li><a href="#" _fcksavedurl="#">游戏技术代练服务</a></li> 
+<li><a href="#" _fcksavedurl="#">mac延期报修服务</a></li> 
+<li><a href="#" _fcksavedurl="#">iphone售后技术支持</a></li> 
+<li><a href="#" _fcksavedurl="#">ipad在线咨询</a></li> 
+</ul> 
+	</li>
+	<li><a>联系方式</a></li>
+</ul>
+<script type="text/javascript">
+    // 显示下拉菜单，本质就是将li的落空类改了
+	function showSubNav (obj) { // 直接接受dom对象，无需再用getElement*操作
+		obj.className = 'show'; // 使用#nav  li.show ul li 样式
+	}
+	// 隐藏下拉菜单，本质就是将li的落空类改回n
+	function hiddenSubNav(obj) { // 直接接受dom对象，无需再用getElement*操作
+		obj.className = 'hiddensub'; // 使用#nav  li.hidden ul li 样式
+	}
+	$(function() {
+		$('#service').onmouseenter(function() 
+			{
+				
+			});
+	});
+</script>
+</body>
+</html>
